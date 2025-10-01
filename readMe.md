@@ -18,12 +18,12 @@ more confidently without breaking existing logic.
 
 ## Instructions
 
-1. Navigate to the *Word Wrapper* class in *src/word.wrapper.ts* .
+1. Navigate to the **Word Wrapper** class in *src/main/java/com.example/WordWrapper*.
    Here you will find an empty `wrap()` method which takes two values, `text` and `columnLength`.
    You will be adding your code in here as you work through the exercises in order to make your tests pass.
-2. Navigate to the Word Mapper test file in *test/unit/word-wrapper.test.ts* .
+2. Navigate to the **WordMapperTest** in *src/test/java/com.example/WordWrapperTest*.
    This file contains all the tests that are required to pass. These are known as unit tests.
-3. Press the run button on line 4 of the Word Mapper test file, all of your tests should fail
+3. Press the run button on line 8 in **WordMapperTest**, all of your tests should fail
 4. Work through exercise 1 and run the first test, your test should pass, if it fails your logic may be incorrect
 5. Work through the rest of the exercises while running your previous tests to ensure you haven't broken existing logic
 
@@ -42,8 +42,32 @@ Output:
 a
 b
 ```
+2. Add regular expression (Regex) to make sure the text does not contain any numbers or special characters
 
-2. Now adapt the code to ensure the line breaks do not break words
+Input:
+
+```
+text: 'This is a te5t str1ng with numbers!'
+columnLength: 10
+```
+Output:
+```
+Text contains numbers and/or special characters
+```
+3. Throw an error when an invalid column length is passed into the method
+
+Input:
+
+```
+text: 'This is a te5t str1ng with numbers!'
+columnLength: -1
+```
+Output:
+```
+Invalid column length
+```
+
+4. Now adapt the code to ensure the line breaks do not break words
 
 Input:
 
@@ -59,46 +83,11 @@ jumped
 over the
 fence
 ```
-3. Add regular expression (Regex) to make sure the text does not contain any numbers or special characters
-
-Input:
-
-```
-text: 'This is a te5t str1ng with numbers!'
-columnLength: 10
-```
-Output:
-```
-Text contains numbers and/or special characters
-```
-
-4. Throw an error when an invalid column length is passed into the method
-
-Input:
-
-```
-text: 'This is a te5t str1ng with numbers!'
-columnLength: -1
-```
-Output:
-```
-Invalid column length
-```
-
-Word Wrap Exercise
-
-Tasks:
-1) Given a string and a maximum column length, add a line break to the string the necessary times in order for the string to not exceed the column length.
-2) Insert line break without breaking the words
-3) Regex to validate the string e.g. no numbers or special characters
-4) Throw error if column length is invalid
 
 ## Hints and Tips
 
-Useful string methods:
+Link to String methods: https://www.w3schools.com/java/java_ref_string.asp
 
-```
-split()
-substring()
+Link to StringBuilder methods: https://www.geeksforgeeks.org/java/stringbuilder-class-in-java-with-examples/
 
-```
+Link to Regex: https://regex101.com/
