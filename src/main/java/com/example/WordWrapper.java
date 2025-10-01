@@ -3,6 +3,7 @@ package com.example;
 public class WordWrapper {
 
     public String wrap(String text, int columnLength) {
+        //todo THIS IS A TEST MESSAGE
 //        GIVEN SOLUTION
 //        if (text.length() <= columnLength) {
 //            return text;
