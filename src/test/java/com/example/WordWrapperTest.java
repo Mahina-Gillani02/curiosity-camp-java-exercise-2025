@@ -23,19 +23,6 @@ public class WordWrapperTest {
     }
 
     @Test
-    public void shouldNotBreakWords() {
-        //given
-        String text = "The quick brown fox jumped over the fence";
-        int columnLength = 10;
-
-        //when
-        String result = wordWrapper.wrap(text, columnLength);
-
-        //then
-        assertThat(result).isEqualTo("The quick\nbrown fox\njumped\nover the\nfence");
-    }
-
-    @Test
     public void textShouldNotHaveNumbersOrSpecialCharacters() {
         //given
         String text = "This is a te5t str1ng with numbers!";
@@ -59,5 +46,18 @@ public class WordWrapperTest {
 
         //then
         assertThat(exception.getMessage()).isEqualTo("Invalid column length");
+    }
+
+    @Test
+    public void shouldNotBreakWords() {
+        //given
+        String text = "The quick brown fox jumped over the fence";
+        int columnLength = 10;
+
+        //when
+        String result = wordWrapper.wrap(text, columnLength);
+
+        //then
+        assertThat(result).isEqualTo("The quick\nbrown fox\njumped\nover the\nfence");
     }
 }
