@@ -10,16 +10,16 @@ public class WordWrapperTest {
     private final WordWrapper wordWrapper = new WordWrapper();
 
     @Test
-    public void shouldAddBreakLines() {
+    public void shouldThrowAnErrorWhenInvalidColumnLengthProvided() {
         //given
-        String text = "ab";
-        int columnLength = 1;
+        String text = "This is a test string";
+        int columnLength = -1;
 
         //when
-        String result = wordWrapper.wrap(text, columnLength);
+        Exception exception = assertThrows(Exception.class, () -> wordWrapper.wrap(text,columnLength));
 
         //then
-        assertThat(result).isEqualTo("a\nb");
+        assertThat(exception.getMessage()).isEqualTo("Invalid column length");
     }
 
     @Test
@@ -36,20 +36,7 @@ public class WordWrapperTest {
     }
 
     @Test
-    public void shouldThrowAnErrorWhenInvalidColumnLengthProvided() {
-        //given
-        String text = "This is a test string";
-        int columnLength = -1;
-
-        //when
-        Exception exception = assertThrows(Exception.class, () -> wordWrapper.wrap(text,columnLength));
-
-        //then
-        assertThat(exception.getMessage()).isEqualTo("Invalid column length");
-    }
-
-    @Test
-    public void shouldNotBreakWords() {
+    public void shouldAddLineBreaksInSpaces() {
         //given
         String text = "The quick brown fox jumped over the fence";
         int columnLength = 10;
@@ -58,6 +45,19 @@ public class WordWrapperTest {
         String result = wordWrapper.wrap(text, columnLength);
 
         //then
-        assertThat(result).isEqualTo("The quick\nbrown fox\njumped\nover the\nfence");
+        assertThat(result).isEqualTo("The\nquick\nbrown\nfox\njumped\nover\nthe\nfence");
+    }
+
+    @Test
+    public void shouldAddBreakLines() {
+        //given
+        String text = "ab";
+        int columnLength = 1;
+
+        //when
+        String result = wordWrapper.wrap(text, columnLength);
+
+        //then
+        assertThat(result).isEqualTo("a\nb");
     }
 }
