@@ -29,18 +29,18 @@ more confidently without breaking existing logic.
 
 ## Tasks
 Implement the following logic to the `wrap()` class
-1. Given a string and a maximum column length, add a line break where the string exceeds the maximum length
+
+1. Throw an error when an invalid column length is passed into the method
 
 Input:
 
 ```
-text: 'ab'
-columnLength: 1
+text: 'This is a test string'
+columnLength: -1
 ```
 Output:
 ```
-a
-b
+Invalid column length
 ```
 2. Add regular expression (Regex) to make sure the text does not contain any numbers or special characters
 
@@ -54,34 +54,39 @@ Output:
 ```
 Text contains numbers and/or special characters
 ```
-3. Throw an error when an invalid column length is passed into the method
 
-Input:
-
-```
-text: 'This is a te5t str1ng with numbers!'
-columnLength: -1
-```
-Output:
-```
-Invalid column length
-```
-
-4. Now adapt the code to ensure the line breaks do not break words
+3. Replace the spaces within the string with a line break
 
 Input:
 
 ```
 text: 'The quick brown fox jumped over the fence'
-columnLength: 10
+columnLength: 1
 ```
 Output:
 ```
-The quick
-brown fox
+The
+quick
+brown
+fox
 jumped
-over the
+over
+the
 fence
+```
+
+4. Given a string and a maximum column length, add a line break where the string exceeds the maximum length
+
+Input:
+
+```
+text: 'ab'
+columnLength: 1
+```
+Output:
+```
+a
+b
 ```
 
 ## Hints and Tips
@@ -91,3 +96,5 @@ Link to String methods: https://www.w3schools.com/java/java_ref_string.asp
 Link to StringBuilder methods: https://www.geeksforgeeks.org/java/stringbuilder-class-in-java-with-examples/
 
 Link to Regex: https://regex101.com/
+
+Link to Recursion: https://www.w3schools.com/java/java_recursion.asp
